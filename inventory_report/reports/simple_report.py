@@ -32,7 +32,6 @@ class SimpleReport:
     def get_company_with_more_products(list):
         # find the item with maximum occurrences in a list
         # https://stackoverflow.com/questions/6987285/find-the-item-with-maximum-occurrences-in-a-list
-
         companies = []
         for item in list:
             companies.append(item["nome_da_empresa"])
