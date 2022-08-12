@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class SimpleReport:
     def __init__(
         self,
@@ -22,7 +23,7 @@ class SimpleReport:
     def get_oldest_manufacturing_date(list):
         # how to convert string to date
         # https://www.google.com/search?q=how+to+convert+string+to+date+python&oq=how+to+convert+string+to+date&aqs=chrome.6.69i57j0i512l7.23065j0j4&sourceid=chrome&ie=UTF-8
-       
+
         dts = []
         for dt in list:
             dts.append(datetime.strptime(dt["data_de_fabricacao"], "%Y-%m-%d"))
@@ -31,7 +32,7 @@ class SimpleReport:
     def get_company_with_more_products(list):
         # find the item with maximum occurrences in a list
         # https://stackoverflow.com/questions/6987285/find-the-item-with-maximum-occurrences-in-a-list
-        
+
         companies = []
         for item in list:
             companies.append(item["nome_da_empresa"])
@@ -47,10 +48,13 @@ class SimpleReport:
         return min(dts).date()
 
     def generate(products):
-        oldest_manufacturing_date = SimpleReport.get_oldest_manufacturing_date(products)
-        company_with_more_products = SimpleReport.get_company_with_more_products(products)
-        closest_expiration_date = SimpleReport.get_closest_expiration_date(products)
+        manufacturing_date = SimpleReport.get_oldest_manufacturing_date(
+            products)
+        company = SimpleReport.get_company_with_more_products(
+            products)
+        expiration_date = SimpleReport.get_closest_expiration_date(
+            products)
 
-        return f"""Data de fabricação mais antiga: {oldest_manufacturing_date}
-Data de validade mais próxima: {closest_expiration_date}
-Empresa com mais produtos: {company_with_more_products}"""
+        return f"""Data de fabricação mais antiga: {manufacturing_date}
+Data de validade mais próxima: {expiration_date}
+Empresa com mais produtos: {company}"""
