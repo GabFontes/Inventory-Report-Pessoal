@@ -41,3 +41,4 @@ class ColoredReport:
             )
 
         return report
+#
