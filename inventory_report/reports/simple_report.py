@@ -1,7 +1,8 @@
+from abc import ABC, abstractmethod
 from datetime import datetime
 
 
-class SimpleReport:
+class SimpleReport(ABC):
     def __init__(
         self,
         id,
@@ -46,6 +47,7 @@ class SimpleReport:
                     dt["data_de_validade"], "%Y-%m-%d"))
         return min(dts).date()
 
+    @abstractmethod
     def generate(products):
         manufacturing_date = SimpleReport.get_oldest_manufacturing_date(
             products)
