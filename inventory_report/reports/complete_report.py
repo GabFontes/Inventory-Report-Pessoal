@@ -22,7 +22,6 @@ class CompleteReport(SimpleReport):
             instrucoes_de_armazenamento,
         )
 
-
     def get_products_stocked_by_company(products):
         companies = dict()
         for product in products:
@@ -37,10 +36,10 @@ class CompleteReport(SimpleReport):
             product_by_company.append(f"""- {key}: {value}\n""")
         return f'{"".join(item for item in product_by_company)}'
 
-
     def generate(products):
         simple_report = SimpleReport.generate(products)
-        products_by_company = CompleteReport.get_products_stocked_by_company(products)
+        products_by_company = CompleteReport.get_products_stocked_by_company(
+            products)
         return f"""{simple_report}
 Produtos estocados por empresa:
 {products_by_company}"""
