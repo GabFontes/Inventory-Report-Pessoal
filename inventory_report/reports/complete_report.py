@@ -34,7 +34,7 @@ class CompleteReport(SimpleReport):
         product_by_company = []
         for key, value in companies.items():
             product_by_company.append(f"""- {key}: {value}\n""")
-        return f'{"".join(item for item in product_by_company)}'
+        return "".join(product_by_company)
 
     def generate(products):
         simple_report = SimpleReport.generate(products)
