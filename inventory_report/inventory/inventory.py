@@ -7,7 +7,7 @@ import json
 
 class Inventory:
     @staticmethod
-    def import_data(path, report_type):
+    def get_products(path):
         products = list()
 
         if path.endswith(".csv"):
@@ -27,7 +27,10 @@ class Inventory:
                     {element.tag: element.text for element in record}
                     for record in root
                 ]
+        return products
 
+    def import_data(path, report_type):
+        products = Inventory.get_products(path)
         if report_type == 'simples':
             return SimpleReport.generate(products)
         elif report_type == 'completo':
